@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+# This script creates crustal thickness NetCDF files based on paleoelevation input files, 
+# currently from "STELLAR-Phase4A-Paleotopography-Merged-PMAG" and "STELLAR-Phase4A-Paleotopography-Merged-mantle".
+# The basic assumption is that Airy isostasy can be used to convert elevation to crustal thickness based on assumptions 
+# about different bulk densities of crust and mantle. 
 
 import xarray as xr
 import os
@@ -61,3 +65,4 @@ def process_netcdf_file(filename):
 for file in os.listdir(input_dir):
     if file.startswith("paleotopography_spliced_") and file.endswith(".nc"):
         process_netcdf_file(os.path.join(input_dir, file))
+
